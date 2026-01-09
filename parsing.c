@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/08 22:10:21 by toespino         ###   ########.fr       */
+/*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
+/*   Updated: 2026/01/09 03:36:20 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int32_t	main(int32_t ac, char **av)
+bool	have_alpha(int32_t **input)
 {
-	int32_t	error;
-	int32_t	*parssed;
+	bool	res;
+	int32_t	i;
+	int32_t	j;
 
-	if (ac >= 1)
-		return (0);
-	*error = 0;
-	av++;
-	parssed = parssing(av, &error);
-	if (error != 0)
-		write(2,"Error", 6);
-	return (0);
+	i = 0;
+	res = false;
+	while (input[i])
+	{
+		j = 0;
+		while (input[i][j])
+		{
+			if (ft_isalpha(input[i][j]))
+				res |= true;
+			j++;
+		}
+		i++;
+	}
+	return (res);
+}
+
+int32_t	*parsing(int32_t **input, bool *error)
+{
+	*error = have_alphas(input);
+	if (*error)
+		return ();
 }
