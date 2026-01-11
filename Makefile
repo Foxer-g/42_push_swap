@@ -1,27 +1,43 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
-OBJDIR = build/
 SRCDIR = src/
-OBJ = main.o\
+OBJDIR = build/
+INCLUDE = -Iinclude -Ilibft
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
+LDFLAGS = -L$(LIBFT_DIR)
+LDLIBS = -lft
 
-all:$(NAME)
+OBJ = main.o
+
+OBJS = $(addprefix $(OBJDIR), $(OBJ))
+
+all: $(NAME)
 
 $(OBJDIR):
-	@mkdir -p $@
+	mkdir -p $@
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) 
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(LDLIBS) -o $@
 
-$(OBJDIR)%.o : $(SRCDIR)%.c $(OBJDIR)
-	$(CC) $(CFLAGS) $< -c -o $@
+$(LIBFT):
+	make -C $(LIBFT_DIR) -j
 
-clean :
+$(OBJDIR)%.o: $(SRCDIR)%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
 	rm -rf $(OBJDIR)
+	make -C $(LIBFT_DIR) clean
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
-re : fclean all
+re: fclean
+	make -C $(LIBFT_DIR) re -j
+	make all
 
-.PHONY : all re clean fclean
+.PHONY: all clean fclean re
+

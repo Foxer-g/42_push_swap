@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/08 22:10:21 by toespino         ###   ########.fr       */
+/*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
+/*   Updated: 2026/01/11 22:10:13 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int32_t	main(int32_t ac, char **av)
-{
-	int32_t	error;
-	int32_t	*parssed;
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-	if (ac >= 1)
-		return (0);
-	*error = 0;
-	av++;
-	parssed = parssing(av, &error);
-	if (error != 0)
-		write(2,"Error", 6);
-	return (0);
-}
+# include <stdint.h>
+# include <stdbool.h>
+# include "libft.h"
+
+#endif
+
+

@@ -6,9 +6,11 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/09 03:36:20 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/11 21:42:09 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include ""
 
 bool	have_alpha(int32_t **input)
 {
@@ -36,5 +38,6 @@ int32_t	*parsing(int32_t **input, bool *error)
 {
 	*error = have_alphas(input);
 	if (*error)
-		return ();
+		return (0);
+	
 }
