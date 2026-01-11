@@ -6,13 +6,13 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/11 21:42:09 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/11 23:55:45 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "push_swap.h"
 
-bool	have_alpha(int32_t **input)
+bool	have_alpha(char **input)
 {
 	bool	res;
 	int32_t	i;
@@ -34,10 +34,49 @@ bool	have_alpha(int32_t **input)
 	return (res);
 }
 
-int32_t	*parsing(int32_t **input, bool *error)
+char	*joinning(char **input)
 {
-	*error = have_alphas(input);
-	if (*error)
+	int32_t	i;
+	char	*res;
+	char	*temp;
+
+	i = 0;
+	if (input[i])
+	{
+		if (!input[i + 1])
+			return (input[i]);
+	}
+	else
+		return (NULL);
+	res = ft_strjoin((const char *)input[i], (const char *)input[i + 1]);
+	i += 2;
+	while (input[i])
+	{
+		 = ft_strjoin((const char *)res, (const char *)input[i]);
+		i++;
+	}
+	return (res);
+}
+
+int32_t	*parsing(char **input, bool *error)
+{
+	char	*joined;
+	char	**splitted;
+	int32_t	*converted;
+
+	if (have_alpha(input))
 		return (0);
-	
+	joined = joinning(input);
+	if (!joined)
+		return (0)
+	joined = trim_space(joined);
+	if (!joined)
+		return (0);
+	splited = ft_split((const char)joined, ' ');
+	if (!splited)
+		return (0);
+	converted = type_convertor(splited);
+	if (!converted)
+		return (0);
+	return (converted);
 }

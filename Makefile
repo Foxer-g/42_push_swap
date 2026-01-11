@@ -9,7 +9,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 
-OBJ = main.o
+OBJ = main.o \
+	parsing.o \
 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
