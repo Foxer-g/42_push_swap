@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/11 23:55:45 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:41:06 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,18 @@ char	*joinning(char **input)
 	i += 2;
 	while (input[i])
 	{
-		temp = ft_strjoin((const char *)res, (const char *)input[i]);
+		join = ft_strjoin((const char *)res, (const char *)input[i]);
+		temp = res;
+		free(temp);
+		res = join;
 		i++;
 	}
 	return (res);
 }
 
-char	*trim_space(char *joined)
-{
-	return (joined);
-}
-
 int32_t	*type_convertor(char **splited)
 {
+
 	return (0);
 }
 
@@ -77,9 +76,6 @@ int32_t	*parsing(char **input, bool *error)
 	if (have_alpha(input))
 		return (0);
 	joined = joinning(input);
-	if (!joined)
-		return (0);
-	joined = trim_space(joined);
 	if (!joined)
 		return (0);
 	splited = ft_split((const char *)joined, ' ');
