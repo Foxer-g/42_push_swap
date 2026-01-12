@@ -52,27 +52,37 @@ char	*joinning(char **input)
 	i += 2;
 	while (input[i])
 	{
-		 = ft_strjoin((const char *)res, (const char *)input[i]);
+		temp = ft_strjoin((const char *)res, (const char *)input[i]);
 		i++;
 	}
 	return (res);
 }
 
+char	*trim_space(char *joined)
+{
+	return (joined);
+}
+
+int32_t	*type_convertor(char **splited)
+{
+	return (0);
+}
+
 int32_t	*parsing(char **input, bool *error)
 {
 	char	*joined;
-	char	**splitted;
+	char	**splited;
 	int32_t	*converted;
 
 	if (have_alpha(input))
 		return (0);
 	joined = joinning(input);
 	if (!joined)
-		return (0)
+		return (0);
 	joined = trim_space(joined);
 	if (!joined)
 		return (0);
-	splited = ft_split((const char)joined, ' ');
+	splited = ft_split((const char *)joined, ' ');
 	if (!splited)
 		return (0);
 	converted = type_convertor(splited);
