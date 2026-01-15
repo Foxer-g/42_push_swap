@@ -7,7 +7,7 @@ INCLUDE = -Iinclude -Ilibft
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LDFLAGS = -L$(LIBFT_DIR)
-LDLIBS = -lft
+LDLIBS = -libft
 
 OBJ = main.o \
 	parsing.o \
