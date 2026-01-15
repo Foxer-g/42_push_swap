@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/12 22:41:06 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/15 23:12:19 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*joinning(char **input)
 	int32_t	i;
 	char	*res;
 	char	*temp;
+	char	*join;
 
 	i = 0;
 	if (input[i])
@@ -61,13 +62,34 @@ char	*joinning(char **input)
 	return (res);
 }
 
+uint64_t	array_len(char **array)
+{
+	uint64_t	i;
+
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
+}
+
 int32_t	*type_convertor(char **splited)
 {
+	int32_t	len;
+	int32_t	*res;
+	int32_t	i;
 
+	len = array_len(splited);
+	res = malloc(len * sizeof(int32_t));
+	i = 0;
+	while (splited[i])
+	{
+		res[i] = ft_atoi(splited[i]);
+		i++;
+	}
 	return (0);
 }
 
-int32_t	*parsing(char **input, bool *error)
+int32_t	*parsing(char **input)
 {
 	char	*joined;
 	char	**splited;

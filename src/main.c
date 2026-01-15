@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/11 23:20:49 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:08:53 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int32_t	main(int32_t ac, char **av)
 		return (0);
 	error = false;
 	av++;
-	parsed = parsing(av, &error);
+	parsed = parsing(av);
 	if (!parsed)
 		error = true;
 	if (error != false)
