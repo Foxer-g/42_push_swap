@@ -27,7 +27,7 @@ int32_t	main(int32_t ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	while (i < 5)
+	while (i < ac - 1)
 	{
 		printf("%d\n", parsed[i]);
 		i++;
