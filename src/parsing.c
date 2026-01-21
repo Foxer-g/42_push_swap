@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 14:37:00 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 19:06:32 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*join_util(char *res, char *input)
 	char	*temp;
 	char	*join;
 
-	join = ft_strjoin((const char *)res, (const char *)input);
+	join = ft_strjoin(res, input);
 	temp = res;
 	free(temp);
 	res = join;
@@ -59,7 +59,7 @@ char	*joinning(char **input)
 	}
 	else
 		return (NULL);
-	res = ft_strjoin((const char *)input[i], (const char *)" ");
+	res = ft_strjoin(input[i]," ");
 	i++;
 	while (input[i])
 	{
@@ -70,15 +70,14 @@ char	*joinning(char **input)
 	return (res);
 }
 
-int32_t	*type_convertor(char **splited)
+int32_t	*type_convertor(char **splited, int32_t *len_lst)
 {
-	uint64_t	len_array;
 	int32_t		*res;
 	int64_t		temp;
 	int32_t		i;
 
-	len_array = array_len(splited);
-	res = malloc(len_array * sizeof(int32_t));
+	*len_lst = array_len(splited);
+	res = malloc(*len_lst * sizeof(int32_t));
 	i = 0;
 	while (splited[i])
 	{
@@ -88,7 +87,7 @@ int32_t	*type_convertor(char **splited)
 			return (0);
 		}
 		temp = ft_atol(splited[i]);
-		if (temp > 2147483647 || temp < -2147483648)
+		if (temp > INT32_MAX || temp < INT32_MIN)
 		{
 			free(res);
 			return (0);
@@ -104,17 +103,21 @@ int32_t	*parsing(char **input)
 	char	*joined;
 	char	**splited;
 	int32_t	*converted;
+	int32_t	len_lst;
 
 	if (have_alpha(input))
 		return (0);
 	joined = joinning(input);
 	if (!joined)
 		return (0);
-	splited = ft_split((const char *)joined, ' ');
+	splited = ft_split(joined, ' ');
 	if (!splited)
 		return (0);
-	converted = type_convertor(splited);
+	len_lst = 0;
+	converted = type_convertor(splited, &len_lst);
 	if (!converted)
+		return (0);
+	if (!verify(converted, len_lst))
 		return (0);
 	return (converted);
 }

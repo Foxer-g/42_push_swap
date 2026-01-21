@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 14:44:43 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:56:56 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ int64_t	ft_atol(char *str)
 	sign = 1;
 	while (str[i] == ' ' )
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
+	if (!ft_isdigit(str[i]))
+		return (2147483649);
 	while (ft_isdigit(str[i]))
 	{
 		res = res * 10 + str[i] - 48;
@@ -48,4 +49,24 @@ uint64_t	array_len(char **array)
 	while (array[i])
 		i++;
 	return (i);
+}
+
+bool	verify(int32_t *num_lst, int32_t len_lst)
+{
+	int32_t	i;
+	int32_t	j;
+	
+	i = 0;
+	while (i < len_lst)
+	{
+		j = i + 1;
+		while (j < len_lst)
+		{
+			if (num_lst[i] == num_lst[j])
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
 }
