@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 19:59:13 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:58 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ bool	have_alpha(char **input)
 
 char	*join_util(char *res, char *input)
 {
-	char	*temp;
 	char	*join;
 
 	join = ft_strjoin(res, input);
-	temp = res;
-	free(temp);
+	free(res);
 	res = join;
 	return (res);
 }
