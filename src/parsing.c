@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 19:06:32 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 19:59:13 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*joinning(char **input)
 	}
 	else
 		return (NULL);
-	res = ft_strjoin(input[i]," ");
+	res = ft_strjoin(input[i], " ");
 	i++;
 	while (input[i])
 	{

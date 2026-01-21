@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 18:56:56 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 19:59:27 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool	verify(int32_t *num_lst, int32_t len_lst)
 {
 	int32_t	i;
 	int32_t	j;
-	
+
 	i = 0;
 	while (i < len_lst)
 	{
