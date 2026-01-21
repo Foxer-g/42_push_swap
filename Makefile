@@ -1,9 +1,9 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 NAME = push_swap
 SRCDIR = src/
 OBJDIR = build/
-INCLUDE = -Iinclude -Ilibft
+INCLUDE = -Iinclude -Ilibft/include
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LDFLAGS = -L$(LIBFT_DIR)
@@ -11,6 +11,7 @@ LDLIBS = -lft
 
 OBJ = main.o \
 	parsing.o \
+	parsing_utils.o \
 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 

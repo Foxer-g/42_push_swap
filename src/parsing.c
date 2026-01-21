@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/15 23:12:19 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:37:00 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,22 @@ bool	have_alpha(char **input)
 	return (res);
 }
 
+char	*join_util(char *res, char *input)
+{
+	char	*temp;
+	char	*join;
+
+	join = ft_strjoin((const char *)res, (const char *)input);
+	temp = res;
+	free(temp);
+	res = join;
+	return (res);
+}
+
 char	*joinning(char **input)
 {
 	int32_t	i;
 	char	*res;
-	char	*temp;
-	char	*join;
 
 	i = 0;
 	if (input[i])
@@ -49,44 +59,44 @@ char	*joinning(char **input)
 	}
 	else
 		return (NULL);
-	res = ft_strjoin((const char *)input[i], (const char *)input[i + 1]);
-	i += 2;
+	res = ft_strjoin((const char *)input[i], (const char *)" ");
+	i++;
 	while (input[i])
 	{
-		join = ft_strjoin((const char *)res, (const char *)input[i]);
-		temp = res;
-		free(temp);
-		res = join;
+		res = join_util(res, input[i]);
+		res = join_util(res, " ");
 		i++;
 	}
 	return (res);
 }
 
-uint64_t	array_len(char **array)
-{
-	uint64_t	i;
-
-	i = 0;
-	while (array[i])
-		i++;
-	return (i);
-}
-
 int32_t	*type_convertor(char **splited)
 {
-	int32_t	len;
-	int32_t	*res;
-	int32_t	i;
+	uint64_t	len_array;
+	int32_t		*res;
+	int64_t		temp;
+	int32_t		i;
 
-	len = array_len(splited);
-	res = malloc(len * sizeof(int32_t));
+	len_array = array_len(splited);
+	res = malloc(len_array * sizeof(int32_t));
 	i = 0;
 	while (splited[i])
 	{
-		res[i] = ft_atoi(splited[i]);
+		if (ft_strlen(splited[i]) > 11)
+		{
+			free(res);
+			return (0);
+		}
+		temp = ft_atol(splited[i]);
+		if (temp > 2147483647 || temp < -2147483648)
+		{
+			free(res);
+			return (0);
+		}
+		res[i] = temp;
 		i++;
 	}
-	return (0);
+	return (res);
 }
 
 int32_t	*parsing(char **input)

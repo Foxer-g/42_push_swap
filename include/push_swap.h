@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/15 21:08:15 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:42:21 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include "libft.h"
-
-int32_t	*parsing(char **input);
+#include <stdio.h>
+int32_t		*parsing(char **input);
+uint64_t	array_len(char **array);
+int64_t		ft_atol(char *str);
 
 #endif
