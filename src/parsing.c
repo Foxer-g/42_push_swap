@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/22 16:05:11 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:46:35 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,27 @@ char	*joinning(char **input)
 	return (res);
 }
 
-int32_t	*type_convertor(char **splited, int32_t *len_lst)
+int32_t	*type_convertor(char **splited, uint64_t *len_lst)
 {
 	int32_t		*res;
 	int64_t		temp;
 	int32_t		i;
 
 	*len_lst = array_len(splited);
-	res = malloc(*len_lst * sizeof(int32_t));
+	res = malloc((*len_lst + 1) * sizeof(int32_t));
 	i = 0;
 	while (splited[i])
 	{
 		if (ft_strlen(splited[i]) > 11)
 		{
 			free(res);
-			return (0);
+			return (NULL);
 		}
 		temp = ft_atol(splited[i]);
 		if (temp > INT32_MAX || temp < INT32_MIN)
 		{
 			free(res);
-			return (0);
+			return (NULL);
 		}
 		res[i] = temp;
 		i++;
@@ -98,26 +98,38 @@ int32_t	*type_convertor(char **splited, int32_t *len_lst)
 	return (res);
 }
 
-int32_t	*parsing(char **input)
+int32_t	*parsing(char **input, uint64_t *len_lst)
 {
 	char	*joined;
 	char	**splited;
 	int32_t	*converted;
-	int32_t	len_lst;
 
 	if (input_check(input))
-		return (0);
+		return (NULL);
 	joined = joinning(input);
 	if (!joined)
-		return (0);
+	{
+		free(joined);
+		return (NULL);
+	}
 	splited = ft_split(joined, ' ');
+	free(joined);
 	if (!splited)
-		return (0);
+	{
+		free(splited);
+		return (NULL);
+	}
 	len_lst = 0;
-	converted = type_convertor(splited, &len_lst);
+	converted = type_convertor(splited, len_lst);
 	if (!converted)
-		return (0);
-	if (!verify(converted, len_lst))
-		return (0);
+	{
+		free(converted);
+		return (NULL);
+	}
+	if (!verify(converted, *len_lst))
+	{
+		free(converted);
+		return (NULL);
+	}
 	return (converted);
 }
