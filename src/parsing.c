@@ -6,13 +6,13 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 20:34:58 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:05:11 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	have_alpha(char **input)
+bool	input_check(char **input)
 {
 	bool	res;
 	int32_t	i;
@@ -23,6 +23,8 @@ bool	have_alpha(char **input)
 	while (input[i])
 	{
 		j = 0;
+		if (j == 0 && !input[i][j])
+			res |= true;
 		while (input[i][j])
 		{
 			if (ft_isalpha(input[i][j]))
@@ -103,7 +105,7 @@ int32_t	*parsing(char **input)
 	int32_t	*converted;
 	int32_t	len_lst;
 
-	if (have_alpha(input))
+	if (input_check(input))
 		return (0);
 	joined = joinning(input);
 	if (!joined)
