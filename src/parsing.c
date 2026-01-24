@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/22 19:46:35 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/24 11:28:21 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*joinning(char **input)
 	if (input[i])
 	{
 		if (!input[i + 1])
-			return (input[i]);
+			return (ft_strdup(input[i]));
 	}
 	else
 		return (NULL);
@@ -119,7 +119,7 @@ int32_t	*parsing(char **input, uint64_t *len_lst)
 		free(splited);
 		return (NULL);
 	}
-	len_lst = 0;
+	*len_lst = 0;
 	converted = type_convertor(splited, len_lst);
 	if (!converted)
 	{
