@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/24 11:28:21 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/24 11:53:14 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,28 +108,17 @@ int32_t	*parsing(char **input, uint64_t *len_lst)
 		return (NULL);
 	joined = joinning(input);
 	if (!joined)
-	{
-		free(joined);
 		return (NULL);
-	}
 	splited = ft_split(joined, ' ');
 	free(joined);
 	if (!splited)
-	{
-		free(splited);
 		return (NULL);
-	}
 	*len_lst = 0;
 	converted = type_convertor(splited, len_lst);
+	free_array(splited);
 	if (!converted)
-	{
-		free(converted);
 		return (NULL);
-	}
 	if (!verify(converted, *len_lst))
-	{
-		free(converted);
 		return (NULL);
-	}
 	return (converted);
 }

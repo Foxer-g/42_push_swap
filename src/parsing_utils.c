@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/21 19:59:27 by toespino         ###   ########.fr       */
+/*   Updated: 2026/01/24 11:52:05 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,18 @@ bool	verify(int32_t *num_lst, int32_t len_lst)
 		i++;
 	}
 	return (true);
+}
+
+void	free_array(char **array)
+{
+	uint64_t	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return ;
 }
