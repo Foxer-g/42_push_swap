@@ -119,6 +119,9 @@ int32_t	*parsing(char **input, uint64_t *len_lst)
 	if (!converted)
 		return (NULL);
 	if (!verify(converted, *len_lst))
+	{
+		free(converted);
 		return (NULL);
+	}
 	return (converted);
 }
