@@ -10,8 +10,8 @@ LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 
 OBJ = main.o \
-	parsing.o \
-	parsing_utils.o \
+	parser/parsing.o \
+	parser/parsing_utils.o \
 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
@@ -19,6 +19,7 @@ all: $(NAME)
 
 $(OBJDIR):
 	mkdir -p $@
+	mkdir -p $@/parser
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(LDLIBS) -o $@
