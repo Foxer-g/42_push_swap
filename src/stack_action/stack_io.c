@@ -1,23 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_action.h                                     :+:      :+:    :+:   */
+/*   stack_io.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 22:37:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/29 00:39:51 by toespino         ###   ########.fr       */
+/*   Created: 2026/01/28 23:33:18 by toespino          #+#    #+#             */
+/*   Updated: 2026/01/29 00:57:42 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	STACK_ACTION_H
-# define STACK_ACTION_H
+#include "stack_action.h"
 
-typedef	struct	stack
-{
-	int32_t			*content;
-	struct stack	*next;
-	uint64_t		*stack_len;
-}
-
-#endif
+void	stacking()
