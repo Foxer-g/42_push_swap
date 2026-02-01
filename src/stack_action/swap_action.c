@@ -6,13 +6,13 @@
 /*   By: f0xer <f0xer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 20:54:55 by f0xer             #+#    #+#             */
-/*   Updated: 2026/02/01 02:40:50 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/01 22:12:51 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_action.h"
 
-void	swap(t_i32stack **stack);
+void	swap(t_i32stack **stack)
 {
 	int32_t	first;
 	int32_t	second;
