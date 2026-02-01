@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 23:33:18 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/30 23:56:37 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/01 02:28:14 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ int32_t	unstacking(t_i32stack **top)
 	free(*top);
 	*top = temp;
 	updating_len(-1, top);
+	return (res);
 }

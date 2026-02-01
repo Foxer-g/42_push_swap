@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 22:37:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/30 23:44:08 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/01 02:42:50 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,7 @@ typedef	struct	s_i32stack
 	uint64_t		stack_len;
 }	t_i32stack;
 
+char	*sa(t_i32stack **stack);
+char	*sb(t_i32stack **stack);
+char	*ss(t_i32stack **stack_a, t_i32stack **stack_b);
 #endif
