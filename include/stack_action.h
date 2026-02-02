@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 22:37:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/01 23:55:28 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/02 01:24:27 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,9 @@ char	*pb(t_i32stack **stack_i, t_i32stack **stack_o);
 char	*ra(t_i32stack **stack);
 char	*rb(t_i32stack **stack);
 char	*rr(t_i32stack **stack_a, t_i32stack **stack_b);
+
+char	*rra(t_i32stack **stack);
+char	*rrb(t_i32stack **stack);
+char	*rrr(t_i32stack **stack_a, t_i32stack **stack_b);
 
 #endif
