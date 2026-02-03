@@ -6,16 +6,20 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 22:23:46 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/01 23:53:08 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:47:47 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stack_action.h"
 
 void	rotate(t_i32stack **stack)
 {
 	int32_t	move;
 	int32_t	*temp;
+	int32_t	i;
 
-	temp = ft_calloc((*stack->stack_len - 1), sizeof(int32_t));
+	i = 0;
+	temp = ft_calloc(((*stack)->stack_len - 1), sizeof(int32_t));
 	move = unstacking(stack);
 	while (*stack)
 	{
@@ -41,7 +45,7 @@ char	*ra(t_i32stack **stack)
 char	*rb(t_i32stack	**stack)
 {
 	rotate(stack);
-	return ("rb")
+	return ("rb");
 }
 
 char	*rr(t_i32stack **stack_a, t_i32stack **stack_b)

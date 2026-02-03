@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 23:33:18 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/01 02:28:14 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/03 02:38:46 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	updating_len(int32_t value, t_i32stack **top)
 	t_i32stack	**temp;
 
 	temp = NULL;
-	*top->stack_len += value;
-	if (*top->previous)
+	(*top)->stack_len += value;
+	if ((*top)->previous)
 	{
-		temp = &(*top->previous);
+		temp = &((*top)->previous);
 		updating_len(value, temp);
 	}
 	return ;
 }
 
-t_i32stack	*stack_newemt(int32_t content)
+t_i32stack	*stack_emt(int32_t content)
 {
 	t_i32stack	*emt;
 
@@ -54,8 +54,8 @@ int32_t	unstacking(t_i32stack **top)
 	t_i32stack	*temp;
 	int32_t		res;
 
-	res = *top->content;
-	temp = *top->previous;
+	res = (*top)->content;
+	temp = (*top)->previous;
 	free(*top);
 	*top = temp;
 	updating_len(-1, top);

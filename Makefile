@@ -12,6 +12,11 @@ LDLIBS = -lft
 OBJ = main.o \
 	parser/parsing.o \
 	parser/parsing_utils.o \
+	stack_action/stack_io.o\
+	stack_action/swap_action.o\
+	stack_action/push_action.o\
+	stack_action/rotate_action.o\
+	stack_action/reverse_rotate_action.o\
 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
@@ -20,6 +25,7 @@ all: $(NAME)
 $(OBJDIR):
 	mkdir -p $@
 	mkdir -p $@/parser
+	mkdir -p $@/stack_action
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(LDLIBS) -o $@

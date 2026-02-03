@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_action.c                                      :+:      :+:    :+:   */
+/*   c_libs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 21:56:26 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/03 02:42:48 by toespino         ###   ########.fr       */
+/*   Created: 2026/02/03 02:04:15 by toespino          #+#    #+#             */
+/*   Updated: 2026/02/03 02:38:36 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack_action.h"
-void	push(t_i32stack **stack_i, t_i32stack **stack_o)
-{
-	int32_t	temp;
+#ifndef C_LIBS_H
+# define C_LIBS_H
+# include <stdint.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include "libft.h"
 
-	if (!*stack_i)
-		return ;
-	temp = unstacking(stack_i);
-	*stack_o = stacking(temp, *stack_o);
-	return ;
-}
-
-char	*pa(t_i32stack **stack_a, t_i32stack **stack_b)
-{
-	push(stack_b, stack_a);
-	return ("pa");
-}
-
-char	*pb(t_i32stack **stack_b, t_i32stack **stack_a)
-{
-	push(stack_a, stack_b);
-	return ("pb");
-}
+#endif

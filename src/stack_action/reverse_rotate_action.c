@@ -6,17 +6,21 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 22:23:46 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/02 01:24:31 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/03 02:48:32 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stack_action.h"
 
 void	reverse_rotate(t_i32stack **stack)
 {
 	int32_t	move;
 	int32_t	*temp;
+	int32_t	i;
 
-	temp = ft_calloc((*stack->stack_len - 1), sizeof(int32_t));
-	while (*stack->previous)
+	i = 0;
+	temp = ft_calloc(((*stack)->stack_len - 1), sizeof(int32_t));
+	while ((*stack)->previous)
 	{
 		temp[i] = unstacking(stack);
 		i++;
@@ -41,7 +45,7 @@ char	*rra(t_i32stack **stack)
 char	*rrb(t_i32stack	**stack)
 {
 	reverse_rotate(stack);
-	return ("rrb")
+	return ("rrb");
 }
 
 char	*rrr(t_i32stack **stack_a, t_i32stack **stack_b)
