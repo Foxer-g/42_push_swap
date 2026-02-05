@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 23:33:18 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/03 02:38:46 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:52:56 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ t_i32stack	*stacking(int32_t input, t_i32stack *top)
 
 	new_emt = stack_emt(input);
 	new_emt->previous = top;
-	new_emt->stack_len = top->stack_len;
+	if (top)
+		new_emt->stack_len = top->stack_len;
+	else
+		new_emt->stack_len = 0;
 	updating_len(1, &new_emt);
 	return (new_emt);
 }

@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 05:12:20 by toespino         ###   ########.fr       */
+/*   Created: 2026/02/05 04:28:51 by toespino          #+#    #+#             */
+/*   Updated: 2026/02/05 05:43:17 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int32_t	main(int32_t ac, char **av)
+void	sorting(int32_t *parsed, uint64_t len_stack)
 {
-	int32_t		*parsed;
-	uint64_t	len_stack;
+	t_i32stack	*stack_a;
+	t_i32stack	*stack_b;
+	uint64_t		i;
 
-	if (ac <= 1)
-		return (0);
-	av++;
-	len_stack = 0;
-	parsed = parsing(av, &len_stack);
-	if (!parsed)
+	stack_a = NULL;
+	stack_b = NULL;
+	i = 0;
+	while (i < len_stack)
 	{
-		write (2, "Error\n", 6);
-		free(parsed);
-		return (1);
+		stack_a = stacking(parsed[i], stack_a);
+		i++;
 	}
-	if (len_stack == 1)
-	{
-		free(parsed);
-		return (0);
-	}
-	sorting(parsed, len_stack);
-	return (0);
+	turk_sort(&stack_a, &stack_b);
+	while (stack_a->previous)
+		unstacking(&stack_a);
+	while (stack_b->previous)
+		unstacking(&stack_b);
+	return ;
 }

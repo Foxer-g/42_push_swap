@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/03 02:02:57 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 05:42:01 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include "libft.h"
+# include "stack_action.h"
 
 int32_t		*parsing(char **input, uint64_t *len_lst);
 uint64_t	array_len(char **array);
 int64_t		ft_atol(char *str);
 bool		verify(int32_t *num_lst, int32_t len_lst);
 void		free_array(char **array);
+bool		return_error(int32_t **parsed);
+
+void		sorting(int32_t	*parsed, uint64_t len_stack);
+void		short_sort(t_i32stack **stack);
+void		turk_sort(t_i32stack **stack_a, t_i32stack **stack_b);
+t_i32stack	*target_finder(t_i32stack *stack_a, t_i32stack *stack_b);
+void		turk_sort(t_i32stack **stack_a, t_i32stack **stack_b);
 
 #endif

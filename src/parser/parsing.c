@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/01/24 11:53:14 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 04:43:27 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ char	*joinning(char **input)
 	return (res);
 }
 
-int32_t	*type_convertor(char **splited, uint64_t *len_lst)
+int32_t	*type_convertor(char **splited, uint64_t *len_stack)
 {
 	int32_t		*res;
 	int64_t		temp;
 	int32_t		i;
 
-	*len_lst = array_len(splited);
-	res = malloc((*len_lst + 1) * sizeof(int32_t));
+	*len_stack = array_len(splited);
+	res = malloc((*len_stack + 1) * sizeof(int32_t));
 	i = 0;
 	while (splited[i])
 	{
@@ -98,7 +98,7 @@ int32_t	*type_convertor(char **splited, uint64_t *len_lst)
 	return (res);
 }
 
-int32_t	*parsing(char **input, uint64_t *len_lst)
+int32_t	*parsing(char **input, uint64_t *len_stack)
 {
 	char	*joined;
 	char	**splited;
@@ -113,12 +113,12 @@ int32_t	*parsing(char **input, uint64_t *len_lst)
 	free(joined);
 	if (!splited)
 		return (NULL);
-	*len_lst = 0;
-	converted = type_convertor(splited, len_lst);
+	*len_stack = 0;
+	converted = type_convertor(splited, len_stack);
 	free_array(splited);
 	if (!converted)
 		return (NULL);
-	if (!verify(converted, *len_lst))
+	if (!verify(converted, *len_stack))
 	{
 		free(converted);
 		return (NULL);

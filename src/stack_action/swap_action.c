@@ -6,7 +6,7 @@
 /*   By: f0xer <f0xer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 20:54:55 by f0xer             #+#    #+#             */
-/*   Updated: 2026/02/03 02:37:21 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 04:19:42 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ void	swap(t_i32stack **stack)
 	return ;
 }
 
-char	*sa(t_i32stack **stack)
+void	sa(t_i32stack **stack)
 {
 	swap(stack);
-	return ("sa");
+	write (1, "sa\n", 3);
+	return ;
 }
 
-char	*sb(t_i32stack **stack)
+void	sb(t_i32stack **stack)
 {
 	swap(stack);
-	return ("sb");
+	write (1, "sb\n", 3);
+	return ;
 }
 
-char	*ss(t_i32stack **stack_a, t_i32stack **stack_b)
+void	ss(t_i32stack **stack_a, t_i32stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	return ("ss");
+	write (1, "ss\n", 3);
+	return ;
 }

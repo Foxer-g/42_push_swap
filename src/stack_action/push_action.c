@@ -6,11 +6,12 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:56:26 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/03 02:42:48 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 04:12:05 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_action.h"
+
 void	push(t_i32stack **stack_i, t_i32stack **stack_o)
 {
 	int32_t	temp;
@@ -22,14 +23,16 @@ void	push(t_i32stack **stack_i, t_i32stack **stack_o)
 	return ;
 }
 
-char	*pa(t_i32stack **stack_a, t_i32stack **stack_b)
+void	pa(t_i32stack **stack_a, t_i32stack **stack_b)
 {
 	push(stack_b, stack_a);
-	return ("pa");
+	write (1, "pa\n", 3);
+	return ;
 }
 
-char	*pb(t_i32stack **stack_b, t_i32stack **stack_a)
+void	pb(t_i32stack **stack_b, t_i32stack **stack_a)
 {
 	push(stack_a, stack_b);
-	return ("pb");
+	write(1, "pb\n", 3);
+	return ;
 }

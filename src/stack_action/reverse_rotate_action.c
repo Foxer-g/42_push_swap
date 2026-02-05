@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 22:23:46 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/03 02:48:32 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 04:15:52 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,24 @@ void	reverse_rotate(t_i32stack **stack)
 	return ;
 }
 
-char	*rra(t_i32stack **stack)
+void	rra(t_i32stack **stack)
 {
 	reverse_rotate(stack);
-	return ("rra");
+	write (1, "rra\n", 4);
+	return ;
 }
 
-char	*rrb(t_i32stack	**stack)
+void	rrb(t_i32stack	**stack)
 {
 	reverse_rotate(stack);
-	return ("rrb");
+	write (1, "rrb\n", 4);
+	return ;
 }
 
-char	*rrr(t_i32stack **stack_a, t_i32stack **stack_b)
+void	rrr(t_i32stack **stack_a, t_i32stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	return ("rrr");
+	write (1, "rrr\n", 4);
+	return ;
 }

@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 05:12:20 by toespino         ###   ########.fr       */
+/*   Created: 2026/02/05 03:58:05 by toespino          #+#    #+#             */
+/*   Updated: 2026/02/05 05:48:03 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int32_t	main(int32_t ac, char **av)
+void	turk_sort(t_i32stack **stack_a, t_i32stack **stack_b)
 {
-	int32_t		*parsed;
-	uint64_t	len_stack;
-
-	if (ac <= 1)
-		return (0);
-	av++;
-	len_stack = 0;
-	parsed = parsing(av, &len_stack);
-	if (!parsed)
-	{
-		write (2, "Error\n", 6);
-		free(parsed);
-		return (1);
-	}
-	if (len_stack == 1)
-	{
-		free(parsed);
-		return (0);
-	}
-	sorting(parsed, len_stack);
-	return (0);
+	while ((*stack_a)->stack_len > 3)
+		pb(stack_a, stack_b);
+	short_sort(stack_a);
+	return ;
 }

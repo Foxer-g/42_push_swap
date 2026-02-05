@@ -10,6 +10,7 @@ LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 
 OBJ = main.o \
+	sort.o\
 	parser/parsing.o \
 	parser/parsing_utils.o \
 	stack_action/stack_io.o\
@@ -17,6 +18,10 @@ OBJ = main.o \
 	stack_action/push_action.o\
 	stack_action/rotate_action.o\
 	stack_action/reverse_rotate_action.o\
+	sorting/short_sort.o\
+	sorting/target_node.o\
+	sorting/to_top_cost.o\
+	sorting/turk_sort.o\
 
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
 
@@ -26,6 +31,7 @@ $(OBJDIR):
 	mkdir -p $@
 	mkdir -p $@/parser
 	mkdir -p $@/stack_action
+	mkdir -p $@/sorting
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(LDLIBS) -o $@
