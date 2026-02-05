@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 01:24:08 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 05:21:06 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:03:25 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	short_sort(t_i32stack **stack)
 {
 	uint64_t	len;
 
-	len = 0;
+	len = (*stack)->stack_len;
 	if (len == 1)
 		return ;
 	else if (len == 2)

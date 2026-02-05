@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 22:23:46 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:15:52 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:57:36 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	reverse_rotate(t_i32stack **stack)
 	move = unstacking(stack);
 	while (i > 0)
 	{
-		stacking(temp[i], *stack);
+		*stack = stacking(temp[i], *stack);
 		i--;
 	}
-	stacking(move, *stack);
+	*stack = stacking(move, *stack);
 	free(temp);
 	return ;
 }

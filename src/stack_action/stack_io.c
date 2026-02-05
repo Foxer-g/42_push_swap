@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 23:33:18 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 05:52:56 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 08:58:50 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int32_t	unstacking(t_i32stack **top)
 	temp = (*top)->previous;
 	free(*top);
 	*top = temp;
-	updating_len(-1, top);
+	if (*top)
+		updating_len(-1, top);
 	return (res);
 }

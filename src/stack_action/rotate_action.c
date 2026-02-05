@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 22:23:46 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:23:18 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:57:01 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	rotate(t_i32stack **stack)
 		temp[i] = unstacking(stack);
 		i++;
 	}
-	stacking(move, *stack);
+	*stack = stacking(move, *stack);
 	while (i > 0)
 	{
-		stacking(temp[i], *stack);
+		*stack = stacking(temp[i], *stack);
 		i--;
 	}
 	free(temp);
