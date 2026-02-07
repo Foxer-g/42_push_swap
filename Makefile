@@ -44,14 +44,14 @@ $(OBJDIR)%.o: $(SRCDIR)%.c | $(OBJDIR)
 
 clean:
 	rm -rf $(OBJDIR)
-	make -C $(LIBFT_DIR) clean
+	make -C $(LIBFT_DIR) clean -j
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+	make -C $(LIBFT_DIR) fclean -j
 
 re: fclean
-	make -C $(LIBFT_DIR) re -j
+	make -C $(LIBFT_DIR) all -j
 	make all
 
 .PHONY: all clean fclean re
