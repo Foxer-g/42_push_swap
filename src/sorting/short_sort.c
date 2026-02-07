@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 01:24:08 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 09:03:25 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/07 02:46:15 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void	sort_two(t_i32stack **stack)
 	t_i32stack	*temp;
 
 	temp = (*stack)->previous;
-	if (*stack > temp)
-	{
+	if ((*stack)->content > temp->content)
 		sa(stack);
-	}
 	return ;
 }
 

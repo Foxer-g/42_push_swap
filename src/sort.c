@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 04:28:51 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 09:15:08 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/07 03:14:05 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	sorting(int32_t *parsed, uint64_t len_stack)
 		unstacking(&stack_a);
 	while (stack_b)
 		unstacking(&stack_b);
+	free(parsed);
 	return ;
 }
