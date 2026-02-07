@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 03:12:24 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 05:46:36 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/07 04:16:41 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int32_t	get_cost(t_i32stack *stack_a, t_i32stack *target)
 {
-	uint64_t		index;
+	uint64_t	index;
 	t_i32stack	*cursor;
 
 	cursor = stack_a;

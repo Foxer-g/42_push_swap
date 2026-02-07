@@ -18,6 +18,7 @@ OBJ = main.o \
 	stack_action/push_action.o\
 	stack_action/rotate_action.o\
 	stack_action/reverse_rotate_action.o\
+	sorting/exe_operation.o\
 	sorting/short_sort.o\
 	sorting/target_node.o\
 	sorting/to_top_cost.o\
