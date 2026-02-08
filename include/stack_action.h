@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 22:37:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:10:31 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/08 02:35:08 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void		sa(t_i32stack **stack);
 void		sb(t_i32stack **stack);
 void		ss(t_i32stack **stack_a, t_i32stack **stack_b);
 
-void		pa(t_i32stack **stack_i, t_i32stack **stack_o);
-void		pb(t_i32stack **stack_i, t_i32stack **stack_o);
+void		pa(t_i32stack **stack_a, t_i32stack **stack_b);
+void		pb(t_i32stack **stack_a, t_i32stack **stack_b);
 
 void		ra(t_i32stack **stack);
 void		rb(t_i32stack **stack);

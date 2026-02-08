@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 01:24:08 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/07 02:46:15 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/08 05:22:34 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	sort_two(t_i32stack **stack)
 	temp = (*stack)->previous;
 	if ((*stack)->content > temp->content)
 		sa(stack);
-	return ;
 }
 
 void	sort_three(t_i32stack **stack)
@@ -48,7 +47,6 @@ void	sort_three(t_i32stack **stack)
 	else if (i_biggest == 1)
 		rra(stack);
 	sort_two(stack);
-	return ;
 }
 
 void	short_sort(t_i32stack **stack)
@@ -62,5 +60,4 @@ void	short_sort(t_i32stack **stack)
 		sort_two(stack);
 	else
 		sort_three(stack);
-	return ;
 }

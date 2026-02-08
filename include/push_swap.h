@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/07 08:17:39 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/08 06:24:00 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void		turk_sort(t_i32stack **stack_a, t_i32stack **stack_b);
 int32_t		get_cost(t_i32stack *stack_a, t_i32stack *target);
 int32_t		get_total_cost(t_i32stack *stk_a, t_i32stack *stk_b,
 	t_i32stack *node);
+t_i32stack	*min_finder(t_i32stack *stack);
+char		part_finder(t_i32stack *stack, t_i32stack *node);
 
 #endif

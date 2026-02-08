@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:56:26 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:12:05 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/08 02:26:22 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	pa(t_i32stack **stack_a, t_i32stack **stack_b)
 	return ;
 }
 
-void	pb(t_i32stack **stack_b, t_i32stack **stack_a)
+void	pb(t_i32stack **stack_a, t_i32stack **stack_b)
 {
 	push(stack_a, stack_b);
 	write(1, "pb\n", 3);
