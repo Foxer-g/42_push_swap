@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 01:24:08 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/08 05:22:34 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/09 02:25:55 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,19 @@ void	sort_two(t_i32stack **stack)
 
 void	sort_three(t_i32stack **stack)
 {
-	int8_t		i_biggest;
-	int8_t		i;
-	int32_t		value;
-	t_i32stack	*temp;
+	t_i32stack	*a;
+	t_i32stack	*b;
+	t_i32stack	*c;
 
-	i_biggest = 0;
-	temp = *stack;
-	i = 0;
-	value = INT32_MIN;
-	while (temp)
-	{
-		if (temp->content > value)
-		{
-			i_biggest = i;
-			value = temp->content;
-		}
-		temp = temp->previous;
-		i++;
-	}
-	if (i_biggest == 0)
+	a = *stack;
+	b = a->previous;
+	c = b->previous;
+	if (a->content > b->content && a->content > c->content)
 		ra(stack);
-	else if (i_biggest == 1)
+	else if (b->content > a->content && b->content > c->content)
 		rra(stack);
-	sort_two(stack);
+	if ((*stack)->content > (*stack)->previous->content)
+		sa(stack);
 }
 
 void	short_sort(t_i32stack **stack)

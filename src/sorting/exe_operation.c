@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 04:12:21 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/08 05:57:53 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/09 05:17:05 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ char	part_finder(t_i32stack *stack, t_i32stack *node)
 {
 	uint64_t	index;
 	t_i32stack	*cursor;
-	char		res;
 
-	res = 't';
 	cursor = stack;
 	index = 0;
 	while (cursor && cursor != node)
@@ -27,51 +25,50 @@ char	part_finder(t_i32stack *stack, t_i32stack *node)
 		++index;
 	}
 	if (index > stack->stack_len / 2)
-		res = 'b';
-	return (res);
+		return ('b');
+	return ('t');
 }
 
-void	sim_rotate(t_i32stack **stack_a, t_i32stack **stack_b, int32_t len,
-	void (*rotate)(t_i32stack**, t_i32stack**))
+void	solo_rotate(t_i32stack **stack, uint64_t cost, char part)
 {
-	while (len--)
-		rotate(stack_a, stack_b);
-}
-
-void	solo_rotate(t_i32stack **stack, int32_t *len,
-	void (*rotate)(t_i32stack**))
-{
-	while (*len--)
-		rotate(stack);
+	if (cost > 0)
+	{
+		if (part == 't')
+			while (cost--)
+				ra(stack);
+		else
+			while (cost--)
+				rra(stack);
+	}
 }
 
 void	to_the_top(t_i32stack **stack_a, t_i32stack **stack_b, t_i32stack *node)
 {
 	t_i32stack	*target_node;
-	int32_t		cost[3];
-	char		parts[2];
+	uint64_t	cost[3];
+	char		part[2];
 
 	target_node = target_finder(*stack_a, node);
-	parts[0] = part_finder(*stack_a, target_node);
-	parts[1] = part_finder(*stack_b, node);
 	cost[0] = get_cost(*stack_a, target_node);
 	cost[1] = get_cost(*stack_b, node);
-	cost[2] = (cost[0] * cost[0] < cost[1]) + (cost[1] * (cost[0] >= cost[1]));
-	if (parts[0] == parts[1])
+	part[0] = part_finder(*stack_a, target_node);
+	part[1] = part_finder(*stack_b, node);
+	while (cost[0])
 	{
-		if (parts[0] == 'b')
-			sim_rotate(stack_a, stack_b, cost[2], &rrr);
+		if (part[0] == 't')
+			ra(stack_a);
 		else
-			sim_rotate(stack_a, stack_b, cost[2], &rr);
+			rra(stack_a);
+		cost[0]--;
 	}
-	cost[0] -= cost[2];
-	cost[1] -= cost[2];
-	if (parts[0] == 'b')
-		solo_rotate(stack_a, &cost[0], &rra);
-	solo_rotate(stack_a, &cost[0], &ra);
-	if (parts[1] == 'b')
-		solo_rotate(stack_b, &cost[1], &rrb);
-	solo_rotate(stack_b, &cost[1], &rb);
+	while (cost[1])
+	{
+		if (part[1] == 't')
+			rb(stack_b);
+		else
+			rrb(stack_b);
+		cost[1]--;
+	}
 }
 
 void	turk_sort(t_i32stack **stack_a, t_i32stack **stack_b)
@@ -85,6 +82,7 @@ void	turk_sort(t_i32stack **stack_a, t_i32stack **stack_b)
 	{
 		temp = *stack_b;
 		min_value = INT32_MAX;
+		node = temp;
 		while (temp)
 		{
 			cost = get_total_cost(*stack_a, *stack_b, temp);

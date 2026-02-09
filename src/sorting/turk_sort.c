@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 03:58:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/08 06:45:41 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/09 02:18:46 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	rotate_sort(t_i32stack **stack)
 	nb_action = get_cost(min, *stack);
 	part = part_finder(*stack, min);
 	if (part == 'b')
-		while (nb_action-- >= 0)
+		while (nb_action-- > 0)
 			rra(stack);
-	while (nb_action-- >= 0)
+	while (nb_action-- > 0)
 		ra(stack);
 }
 
