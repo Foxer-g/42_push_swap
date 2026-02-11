@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 03:58:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/09 02:18:46 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/11 07:27:28 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,31 @@ void	rotate_sort(t_i32stack **stack)
 		ra(stack);
 }
 
+bool	ft_issorted(t_i32stack **stack)
+{
+	bool	res;
+
+	if ((*stack)->previous)
+	{
+		if ((*stack)->content < (*stack)->previous->content)
+			res = ft_issorted(&((*stack)->previous));
+		else
+			res = false;
+	}
+	else
+		res = true;
+	return (res);
+}
+
 void	turk_sort_init(t_i32stack **stack_a, t_i32stack **stack_b)
 {
+	if (ft_issorted(stack_a))
+		return ;
 	while ((*stack_a)->stack_len > 3)
 		pb(stack_a, stack_b);
 	short_sort(stack_a);
 	turk_sort(stack_a, stack_b);
+	if (ft_issorted(stack_a))
+		return ;
 	rotate_sort(stack_a);
 }
