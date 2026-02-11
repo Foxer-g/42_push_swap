@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 05:29:49 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/11 07:07:10 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/11 08:20:38 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	zero_truncator(char **input)
 	if (ft_strlen(*input) >= 11)
 	{
 		i = 0;
-		sign = "+";
+		sign = "+0";
 		if ((*input)[i] == '-')
 		{
-			sign = "-";
+			sign = "-0";
 			i++;
 		}
 		if ((*input)[i] == '+')
