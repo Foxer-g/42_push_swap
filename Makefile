@@ -13,6 +13,7 @@ OBJ = main.o \
 	sort.o\
 	parser/parsing.o \
 	parser/parsing_utils.o \
+	parser/more_parsing_utils.o\
 	stack_action/stack_io.o\
 	stack_action/swap_action.o\
 	stack_action/push_action.o\

@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:43:27 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/11 07:02:28 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	input_check(char **input)
 	while (input[i])
 	{
 		j = 0;
-		if (j == 0 && !input[i][j])
+		if (!input[i][j])
 			res |= true;
 		while (input[i][j])
 		{
@@ -33,6 +33,7 @@ bool	input_check(char **input)
 		}
 		i++;
 	}
+	res |= ft_is_full_space(input);
 	return (res);
 }
 
@@ -81,7 +82,8 @@ int32_t	*type_convertor(char **splited, uint64_t *len_stack)
 	i = 0;
 	while (splited[i])
 	{
-		if (ft_strlen(splited[i]) > 11)
+		zero_truncator(&splited[i]);
+		if (ft_strlen(splited[i]) >= 20)
 		{
 			free(res);
 			return (NULL);

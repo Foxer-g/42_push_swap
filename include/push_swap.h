@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/08 06:24:00 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/11 06:04:17 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int64_t		ft_atol(char *str);
 bool		verify(int32_t *num_lst, int32_t len_lst);
 void		free_array(char **array);
 bool		return_error(int32_t **parsed);
+bool		ft_is_full_space(char **input);
+void		zero_truncator(char **input);
 
 void		sorting(int32_t	*parsed, uint64_t len_stack);
 void		short_sort(t_i32stack **stack);
