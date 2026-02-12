@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 04:12:21 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/09 05:17:05 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:53:02 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,10 @@ char	part_finder(t_i32stack *stack, t_i32stack *node)
 	return ('t');
 }
 
-void	solo_rotate(t_i32stack **stack, uint64_t cost, char part)
-{
-	if (cost > 0)
-	{
-		if (part == 't')
-			while (cost--)
-				ra(stack);
-		else
-			while (cost--)
-				rra(stack);
-	}
-}
-
 void	to_the_top(t_i32stack **stack_a, t_i32stack **stack_b, t_i32stack *node)
 {
 	t_i32stack	*target_node;
-	uint64_t	cost[3];
+	uint64_t	cost[2];
 	char		part[2];
 
 	target_node = target_finder(*stack_a, node);

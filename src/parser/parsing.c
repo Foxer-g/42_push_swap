@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/11 07:02:28 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:19:12 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ int32_t	*parsing(char **input, uint64_t *len_stack)
 	free(joined);
 	if (!splited)
 		return (NULL);
-	*len_stack = 0;
 	converted = type_convertor(splited, len_stack);
 	free_array(splited);
 	if (!converted)

@@ -6,18 +6,11 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/05 04:43:41 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:34:36 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-bool	return_error(int32_t **parsed)
-{
-	write(2, "Error\n", 6);
-	free(*parsed);
-	return (1);
-}
 
 int64_t	ft_atol(char *str)
 {
@@ -28,7 +21,7 @@ int64_t	ft_atol(char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while (str[i] == ' ' )
+	while (str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

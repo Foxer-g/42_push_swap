@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/11 06:04:17 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:10:55 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ uint64_t	array_len(char **array);
 int64_t		ft_atol(char *str);
 bool		verify(int32_t *num_lst, int32_t len_lst);
 void		free_array(char **array);
-bool		return_error(int32_t **parsed);
 bool		ft_is_full_space(char **input);
 void		zero_truncator(char **input);
 
