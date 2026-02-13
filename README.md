@@ -38,7 +38,7 @@ If it's already sorted the program while return nothing.
 >   - **rrb** (Rotate b) : Shift down all elements of stack\_b by 1 and the last element becomes the first one.
 >   - **rrr** : rra and rrb at the same time.
 
-## Usage instructions :
+## Usage instructions
 ![](https://github.com/Foxer-g/42_push_swap/blob/main/push_swap_instructions.gif)
 
 ## Ressources :
