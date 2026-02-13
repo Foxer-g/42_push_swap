@@ -42,7 +42,7 @@ If it's already sorted the program while return nothing.
 ![](https://github.com/Foxer-g/42_push_swap/blob/main/push_swap_instructions.gif)
 
 ## Ressources :
-> - **turk sorting algorithm documentation** : [documentation link](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
+> - **Turk sorting algorithm documentation** : [documentation link](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
 > - **Wikipedia article about algorithmic complexity** : [Wikipedia](https://en.wikipedia.org/wiki/Analysis_of_algorithms)
 
 In this project the AI has been used to understand some algorithm and to understand deepen the principle of complexity.
