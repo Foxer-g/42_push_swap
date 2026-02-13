@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 21:03:41 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/12 12:55:30 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/13 05:45:03 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ int32_t	main(int32_t ac, char **av)
 		write (2, "Error\n", 6);
 		free(parsed);
 		return (1);
-	}
-	if (len_stack == 1)
-	{
-		free(parsed);
-		return (0);
 	}
 	sorting(parsed, len_stack);
 	return (0);
