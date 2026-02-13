@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/12 12:19:12 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/13 03:01:28 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	input_check(char **input)
 			res |= true;
 		while (input[i][j])
 		{
-			if (ft_isalpha(input[i][j]))
+			if (!ft_issignednum(input[i][j]))
 				res |= true;
 			j++;
 		}
@@ -37,20 +37,11 @@ bool	input_check(char **input)
 	return (res);
 }
 
-char	*join_util(char *res, char *input)
-{
-	char	*join;
-
-	join = ft_strjoin(res, input);
-	free(res);
-	res = join;
-	return (res);
-}
-
 char	*joinning(char **input)
 {
 	int32_t	i;
 	char	*res;
+	char	*join;
 
 	i = 0;
 	if (input[i])
@@ -61,14 +52,41 @@ char	*joinning(char **input)
 	else
 		return (NULL);
 	res = ft_strjoin(input[i], " ");
-	i++;
-	while (input[i])
+	while (input[++i])
 	{
-		res = join_util(res, input[i]);
-		res = join_util(res, " ");
-		i++;
+		join = ft_strjoin(res, input[i]);
+		free(res);
+		res = ft_strjoin(join, " ");
+		free(join);
 	}
 	return (res);
+}
+
+void	zero_truncator(char **input)
+{
+	char	*sign;
+	char	*res;
+	char	*truncated;
+	int32_t	i;
+
+	if (ft_strlen(*input) >= 11)
+	{
+		i = 0;
+		sign = "+0";
+		if ((*input)[i] == '-' || (*input)[i] == '+')
+		{
+			if ((*input)[i] == '-')
+				sign = "-0";
+			i++;
+		}
+		while ((*input)[i] == '0')
+			i++;
+		truncated = ft_substr(*input, i, ft_strlen(*input));
+		free(*input);
+		res = ft_strjoin(sign, truncated);
+		free(truncated);
+		*input = res;
+	}
 }
 
 int32_t	*type_convertor(char **splited, uint64_t *len_stack)
@@ -79,8 +97,8 @@ int32_t	*type_convertor(char **splited, uint64_t *len_stack)
 
 	*len_stack = array_len(splited);
 	res = malloc((*len_stack + 1) * sizeof(int32_t));
-	i = 0;
-	while (splited[i])
+	i = -1;
+	while (splited[++i])
 	{
 		zero_truncator(&splited[i]);
 		if (ft_strlen(splited[i]) >= 20)
@@ -95,7 +113,6 @@ int32_t	*type_convertor(char **splited, uint64_t *len_stack)
 			return (NULL);
 		}
 		res[i] = temp;
-		i++;
 	}
 	return (res);
 }

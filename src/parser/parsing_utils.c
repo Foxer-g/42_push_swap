@@ -6,11 +6,36 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/12 12:34:36 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/13 03:18:39 by f0xer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	ft_is_full_space(char **input)
+{
+	bool	res;
+	int32_t	i;
+	int32_t	j;
+
+	i = 0;
+	while (input[i])
+	{
+		res = true;
+		j = 0;
+		while (input[i][j])
+		{
+			if (!(input[i][j] == ' ' || (input[i][j] <= 13 &&
+				input[i][j] >= 9)))
+				res = false;
+			j++;
+		}
+		if (res)
+			break ;
+		i++;
+	}
+	return (res);
+}
 
 int64_t	ft_atol(char *str)
 {
@@ -32,10 +57,7 @@ int64_t	ft_atol(char *str)
 	if (!ft_isdigit(str[i]))
 		return (2147483649);
 	while (ft_isdigit(str[i]))
-	{
-		res = res * 10 + str[i] - 48;
-		i++;
-	}
+		res = res * 10 + str[i++] - 48;
 	if (str[i] && (str[i] == '+' || str[i] == '-'))
 		return (2147483648);
 	return (res * sign);
@@ -77,10 +99,6 @@ void	free_array(char **array)
 
 	i = 0;
 	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
+		free(array[i++]);
 	free(array);
-	return ;
 }
