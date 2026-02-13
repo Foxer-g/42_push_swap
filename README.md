@@ -44,5 +44,6 @@ If it's already sorted the program while return nothing.
 ## Ressources :
 > - **Turk sorting algorithm documentation** : [documentation link](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
 > - **Wikipedia article about algorithmic complexity** : [Wikipedia](https://en.wikipedia.org/wiki/Analysis_of_algorithms)
+> - **Gif creation made with** : [VHS by Charm team](https://github.com/charmbracelet/vhs)
 
 In this project the AI has been used to understand some algorithm and to understand deepen the principle of complexity.
