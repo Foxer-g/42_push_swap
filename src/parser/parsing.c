@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 22:00:05 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/13 03:01:28 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/14 04:50:20 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	input_check(char **input)
 			res |= true;
 		while (input[i][j])
 		{
-			if (!ft_issignednum(input[i][j]))
+			if (!(ft_issignednum(input[i][j]) || ft_isspace(input[i][j])))
 				res |= true;
 			j++;
 		}
