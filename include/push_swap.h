@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 21:40:28 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/12 12:10:55 by toespino         ###   ########.fr       */
+/*   Updated: 2026/02/14 03:32:43 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int64_t		ft_atol(char *str);
 bool		verify(int32_t *num_lst, int32_t len_lst);
 void		free_array(char **array);
 bool		ft_is_full_space(char **input);
-void		zero_truncator(char **input);
 
 void		sorting(int32_t	*parsed, uint64_t len_stack);
 void		short_sort(t_i32stack **stack);
@@ -33,7 +32,7 @@ t_i32stack	*target_finder(t_i32stack *stack_a, t_i32stack *stack_b);
 void		turk_sort(t_i32stack **stack_a, t_i32stack **stack_b);
 int32_t		get_cost(t_i32stack *stack_a, t_i32stack *target);
 int32_t		get_total_cost(t_i32stack *stk_a, t_i32stack *stk_b,
-	t_i32stack *node);
+				t_i32stack *node);
 t_i32stack	*min_finder(t_i32stack *stack);
 char		part_finder(t_i32stack *stack, t_i32stack *node);
 

@@ -6,7 +6,7 @@
 /*   By: toespino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:23:13 by toespino          #+#    #+#             */
-/*   Updated: 2026/02/13 03:18:39 by f0xer            ###   ########.fr       */
+/*   Updated: 2026/02/14 03:33:08 by toespino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ bool	ft_is_full_space(char **input)
 		j = 0;
 		while (input[i][j])
 		{
-			if (!(input[i][j] == ' ' || (input[i][j] <= 13 &&
-				input[i][j] >= 9)))
+			if (!(input[i][j] == ' ' || (input[i][j] <= 13
+				&& input[i][j] >= 9)))
 				res = false;
 			j++;
 		}
