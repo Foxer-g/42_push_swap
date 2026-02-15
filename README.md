@@ -1,5 +1,3 @@
-*This project has been created as part of the 42 curriculum by toespino*
-
 # PUSH\_SWAP
 ## **Because Swap_push doesn’t feel as natural**
 
@@ -9,14 +7,14 @@ This project is about sorting arguments with a limited set of instructions in tw
 To achieve it, it use the turk sorting algorithm.
 
 ## Inputs
-The push\_swap program accept only 32 Bits intergers as inputs.
+The push\_swap program accept only 32 Bits integers as inputs.
 Duplicated elements aren't allowed.
 In case of an invalid input push\_swap will return "**Error**" in the error output.
 If nothing is turned in, the program will just return to the prompt.
 
 ## Output
 push\_swap would always return the instructions separated only by \\n
-If it's already sorted the program while return nothing.
+If it's already sorted the program will return nothing.
 
 ## The actions :
 > - Swap :
